@@ -36,7 +36,7 @@ Public Class FileListerForm
     End Sub
 
     Private Sub FileListerForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        FormatCbo.Items.AddRange(New Object() {"<type> ""<fullpath>""", """<fullpath>""", "<typ> ""<fullpath>""", "<typ> ""<name>""", "<fullpath>", """<directory>"" ""<name>"" ""<ext>"""})
+        FormatCbo.Items.AddRange(New Object() {"<type> ""<fullpath>""", """<fullpath>""", """<directory>""<tab>""<name>""", "<typ> ""<fullpath>""", "<typ> ""<name>""", "<fullpath>", """<directory>"" ""<name>"" ""<ext>"""})
         FormatCbo.Text = "<type> ""<fullpath>"""
     End Sub
 
@@ -69,6 +69,7 @@ Public Class FileListerForm
             txt = txt.Replace("<name>", fInfo.Name)
             txt = txt.Replace("<ext>", If(isFolder, "folder", fInfo.Extension))
             txt = txt.Replace("<.ext>", If(isFolder, "folder", "." + fInfo.Extension))
+            txt = txt.Replace("<tab>", vbTab)
 
             str = str + txt + vbNewLine
 
