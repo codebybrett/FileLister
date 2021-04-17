@@ -1,5 +1,4 @@
-FileLister
-############
+# FileLister
 
 When all you want to do is copy or drag and drop files from Windows Explorer or something and get a file listing on to the clipboard.
 
