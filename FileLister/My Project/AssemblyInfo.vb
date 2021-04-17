@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("FileLister")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyDescription("A utility to accept files via drag and drop or paste and copy a formatted list to the clipboard.")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("FileLister")>
-<Assembly: AssemblyCopyright("Copyright ©  2021")>
+<Assembly: AssemblyCopyright("Brett Handley")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

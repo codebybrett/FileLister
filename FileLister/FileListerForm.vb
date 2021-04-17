@@ -16,7 +16,6 @@ Public Class FileListerForm
     End Sub
 
     Private Sub FileListBox_DragEnter(sender As Object, e As DragEventArgs) Handles FileListBox.DragEnter
-        'SET THE PROPER ACTION FOR FILE DROP....BY USING THE FILEDROP METHOD TO COPY
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy
         Else
@@ -37,7 +36,7 @@ Public Class FileListerForm
     End Sub
 
     Private Sub FileListerForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        FormatCbo.Items.AddRange(New Object() {"<type> ""<fullpath>""", "<typ> ""<fullpath>""", "<typ> ""<name>""", "<fullpath>", """<directory>"" ""<name>"" ""<ext>"""})
+        FormatCbo.Items.AddRange(New Object() {"<type> ""<fullpath>""", """<fullpath>""", "<typ> ""<fullpath>""", "<typ> ""<name>""", "<fullpath>", """<directory>"" ""<name>"" ""<ext>"""})
         FormatCbo.Text = "<type> ""<fullpath>"""
     End Sub
 
