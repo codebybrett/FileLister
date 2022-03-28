@@ -27,6 +27,7 @@ Partial Class FileListerForm
         Me.FileListBox = New System.Windows.Forms.ListBox()
         Me.FileListBoxContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FilesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ControlsPnl = New System.Windows.Forms.Panel()
         Me.RemoveBtn = New System.Windows.Forms.Button()
         Me.FormatCbo = New System.Windows.Forms.ComboBox()
@@ -39,15 +40,19 @@ Partial Class FileListerForm
         Me.PasteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TemplateBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FileListBoxContextMenu.SuspendLayout()
+        CType(Me.FilesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ControlsPnl.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.TemplateBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FileListBox
         '
         Me.FileListBox.AllowDrop = True
         Me.FileListBox.ContextMenuStrip = Me.FileListBoxContextMenu
+        Me.FileListBox.DataSource = Me.FilesBindingSource
         Me.FileListBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FileListBox.FormattingEnabled = True
         Me.FileListBox.ItemHeight = 29
@@ -62,12 +67,12 @@ Partial Class FileListerForm
         Me.FileListBoxContextMenu.ImageScalingSize = New System.Drawing.Size(36, 36)
         Me.FileListBoxContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
         Me.FileListBoxContextMenu.Name = "FileListBoxContextMenu"
-        Me.FileListBoxContextMenu.Size = New System.Drawing.Size(157, 46)
+        Me.FileListBoxContextMenu.Size = New System.Drawing.Size(157, 48)
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(156, 42)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(156, 44)
         Me.ToolStripMenuItem1.Text = "Paste"
         '
         'ControlsPnl
@@ -96,6 +101,7 @@ Partial Class FileListerForm
         '
         Me.FormatCbo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FormatCbo.DataSource = Me.TemplateBindingSource
         Me.FormatCbo.FormattingEnabled = True
         Me.FormatCbo.Location = New System.Drawing.Point(379, 16)
         Me.FormatCbo.Name = "FormatCbo"
@@ -124,6 +130,7 @@ Partial Class FileListerForm
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.GripMargin = New System.Windows.Forms.Padding(2, 2, 0, 2)
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(36, 36)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
@@ -136,13 +143,13 @@ Partial Class FileListerForm
         '
         Me.EditToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripSeparator3, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem, Me.toolStripSeparator4, Me.SelectAllToolStripMenuItem})
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(75, 41)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(85, 41)
         Me.EditToolStripMenuItem.Text = "&Edit"
         '
         'toolStripSeparator3
         '
         Me.toolStripSeparator3.Name = "toolStripSeparator3"
-        Me.toolStripSeparator3.Size = New System.Drawing.Size(277, 6)
+        Me.toolStripSeparator3.Size = New System.Drawing.Size(320, 6)
         '
         'CopyToolStripMenuItem
         '
@@ -150,7 +157,7 @@ Partial Class FileListerForm
         Me.CopyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(280, 42)
+        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(323, 48)
         Me.CopyToolStripMenuItem.Text = "&Copy"
         '
         'PasteToolStripMenuItem
@@ -159,18 +166,18 @@ Partial Class FileListerForm
         Me.PasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem"
         Me.PasteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(280, 42)
+        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(323, 48)
         Me.PasteToolStripMenuItem.Text = "&Paste"
         '
         'toolStripSeparator4
         '
         Me.toolStripSeparator4.Name = "toolStripSeparator4"
-        Me.toolStripSeparator4.Size = New System.Drawing.Size(277, 6)
+        Me.toolStripSeparator4.Size = New System.Drawing.Size(320, 6)
         '
         'SelectAllToolStripMenuItem
         '
         Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(280, 42)
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(323, 48)
         Me.SelectAllToolStripMenuItem.Text = "Select &All"
         '
         'FileListerForm
@@ -185,9 +192,11 @@ Partial Class FileListerForm
         Me.Name = "FileListerForm"
         Me.Text = "File Lister - drag or paste files onto list, copy to clipboard"
         Me.FileListBoxContextMenu.ResumeLayout(False)
+        CType(Me.FilesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ControlsPnl.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.TemplateBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -208,4 +217,6 @@ Partial Class FileListerForm
     Friend WithEvents SelectAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FileListBoxContextMenu As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents FilesBindingSource As BindingSource
+    Friend WithEvents TemplateBindingSource As BindingSource
 End Class
